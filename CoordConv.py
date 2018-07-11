@@ -65,4 +65,3 @@ class CoordConv(nn.Module):
 		ret = self.addcoords(input_tensor)
 		ret = self.conv(ret)
 		return ret
-	
