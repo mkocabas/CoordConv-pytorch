@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import numpy as np
 
 class AddCoordsNp():
@@ -16,12 +18,12 @@ class AddCoordsNp():
 		xx_ones = np.ones([1, self.x_dim], dtype=np.int32)
 		xx_ones = np.expand_dims(xx_ones, -1)
 
-		print xx_ones.shape
+		print(xx_ones.shape)
 
 		xx_range = np.expand_dims(np.arange(self.x_dim), 0)
 		xx_range = np.expand_dims(xx_range, 1)
 
-		print xx_range.shape
+		print(xx_range.shape)
 
 		xx_channel = np.matmul(xx_ones, xx_range)
 		xx_channel = np.expand_dims(xx_channel, -1)
@@ -29,12 +31,12 @@ class AddCoordsNp():
 		yy_ones = np.ones([1, self.y_dim], dtype=np.int32)
 		yy_ones = np.expand_dims(yy_ones, 1)
 
-		print yy_ones.shape
+		print(yy_ones.shape)
 
 		yy_range = np.expand_dims(np.arange(self.y_dim), 0)
 		yy_range = np.expand_dims(yy_range, -1)
 
-		print yy_range.shape
+		print(yy_range.shape)
 
 		yy_channel = np.matmul(yy_range, yy_ones)
 		yy_channel = np.expand_dims(yy_channel, -1)
