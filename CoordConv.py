@@ -57,7 +57,7 @@ class AddCoordsTh(nn.Module):
 class CoordConvTh(nn.Module):
     """CoordConv layer as in the paper."""
     def __init__(self, x_dim, y_dim, with_r, *args, **kwargs):
-        super(CoordConv, self).__init__()
+        super(CoordConvTh, self).__init__()
         self.addcoords = AddCoordsTh(x_dim=x_dim, y_dim=y_dim, with_r=with_r)
         self.conv = nn.Conv2d(*args, **kwargs)
 
