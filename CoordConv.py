@@ -83,8 +83,8 @@ class AddCoords(nn.Module):
         """
         batch_size, _, x_dim, y_dim = input_tensor.size()
 
-        xx_channel = torch.arange(x_dim).repeat(1, y_dim, 1)
-        yy_channel = torch.arange(y_dim).repeat(1, x_dim, 1).transpose(1, 2)
+        xx_channel = torch.arange(x_dim).repeat(1, x_dim, 1).transpose(1, 2)
+        yy_channel = torch.arange(y_dim).repeat(1, y_dim, 1)
 
         xx_channel = xx_channel.float() / (x_dim - 1)
         yy_channel = yy_channel.float() / (y_dim - 1)
@@ -112,7 +112,7 @@ class CoordConv(nn.Module):
     def __init__(self, in_channels, out_channels, with_r=False, **kwargs):
         super().__init__()
         self.addcoords = AddCoords(with_r=with_r)
-        in_size = in_channels+2
+        in_size = in_channels + 2
         if with_r:
             in_size += 1
         self.conv = nn.Conv2d(in_size, out_channels, **kwargs)
